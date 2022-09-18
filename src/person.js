@@ -7,6 +7,11 @@ export default class Person {
     this.to = to;
   }
 
+  /**
+   * Formata dados para exibição na tabela utilizando internacionalização
+   * @param language Idioma que será exibido (DEFAULT: en)
+   * @return {{kmTraveled: string, vehicles: string, from: string, id: number, to: string}}
+   */
   formatted(language) {
     const mapDate = date => {
       const [year, month, day] = date.split('-').map(Number);
@@ -28,6 +33,11 @@ export default class Person {
     };
   }
 
+  /**
+   * Factory para gerar uma instancia de pessoa com base em uma string
+   * @param text String no formato correto para gerar nova instancia de Person
+   * @return {Person}
+   */
   static generateInstanceFromString(text) {
     const EMPTY_SPACE = ' ';
     const [id, vehicles, kmTraveled, from, to] = text.split(EMPTY_SPACE);
